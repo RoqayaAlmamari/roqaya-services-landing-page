@@ -37,15 +37,14 @@ document.addEventListener('DOMContentLoaded', function () {
     const currentPosition = window.scrollY;
 
     sections.forEach(function (section) {
-      const sectionTop = section.offsetTop;
-      const sectionHeight = section.offsetHeight;
+      const rect = section.getBoundingClientRect();
 
-      if (currentPosition >= sectionTop - 200 && currentPosition < sectionTop + sectionHeight - 200) {
+      if (rect.top <= 200 && rect.bottom >= 200) {
         section.classList.add('active-section');
-        navList.querySelector(`a[href="#${section.getAttribute('id')}"]`).classList.add('active');
+        navList.querySelector(`a[href="#${section.getAttribute('id')}"]`).parentElement.classList.add('active');
       } else {
         section.classList.remove('active-section');
-        navList.querySelector(`a[href="#${section.getAttribute('id')}"]`).classList.remove('active');
+        navList.querySelector(`a[href="#${section.getAttribute('id')}"]`).parentElement.classList.remove('active');
       }
     });
   }
