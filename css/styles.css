@@ -196,3 +196,14 @@ section p {
     font-size: 12px;
   }
 }
+@media screen and (max-width: 414px) {
+  /* Adjust styles for iPhone 8 Plus */
+  .landing__container {
+    max-width: 100%;
+    padding: 10px;
+  }
+
+  .service-card {
+    width: 100%;
+  }
+}
